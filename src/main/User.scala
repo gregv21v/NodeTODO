@@ -2,14 +2,15 @@ package main
 
 
 
+import controlP5.ControlP5
 import processing.core.PApplet
 import vectors._
 
 /**
   * The user is where the graph starts
   */
-class User(pApp: PApplet) {
-  private val _root: Node = new Node(pApp)
+class User(pApp: PApplet, controlP5: ControlP5) {
+  private val _root: Node = new Node(pApp, controlP5)
   private var _current: Node = _
   private var _start: Vector = new Vector()
   private var _lastDrag: Vector = new Vector()
@@ -43,6 +44,10 @@ class User(pApp: PApplet) {
 
   def mouseReleased: Unit = {
     val delta = new Vector(pApp.mouseX - _start.x , pApp.mouseY -_start.y)
+  }
+
+  def keyPressed: Unit = {
+    _current.keyPressed
   }
 
 

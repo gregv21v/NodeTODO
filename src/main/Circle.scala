@@ -5,6 +5,7 @@ import vectors.Vector
 
 /**
   * Circle shape
+ * @author Gregory Venezia
   */
 class Circle(pApp: PApplet) {
   protected var _position = new Vector
@@ -14,9 +15,6 @@ class Circle(pApp: PApplet) {
   protected var _enabled = true
 
 
-
-
-
   def draw: Unit = {
     pApp.ellipseMode(PConstants.CENTER)
     if(visible) {
@@ -24,13 +22,7 @@ class Circle(pApp: PApplet) {
       pApp.fill(_color)
       pApp.ellipse(_position.x, _position.y, _diameter, _diameter)
     }
-
   }
-
-
-
-
-
 
   def contains(point: Vector): Boolean = {
     if(_enabled)

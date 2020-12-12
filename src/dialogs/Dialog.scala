@@ -1,26 +1,46 @@
 package dialogs
 
-import controlP5.{Textarea, ControlP5}
+import java.awt.TextField
+
+import controlP5.{ControlP5}
 import processing.core.PApplet
 import vectors._
 
 /**
   * Created by Gregory Venezia on 11/22/2015.
   */
-class Dialog(controlP5: ControlP5, pApp: PApplet) {
+class Dialog(pApp: PApplet, controlP5: ControlP5) {
 
   private var _position = new Vector()
-  private var description = new Textarea(controlP5, "description")
+  val description = controlP5.addTextfield("description")
 
-  description.setPosition(500, 500)
-  description.setSize(100, 100)
-  description.setLineHeight(10)
-  description.setFont(pApp.createFont("arial",12))
-  description.setColor(100)
-  description.setText("Testing")
+  description
+    .setPosition(500, 500)
+    .setSize(100, 12)
+    .setColorBackground(pApp.color(0, 255, 255))
+    .setFont(pApp.createFont("arial", 12))
+    .setColor(100)
+    .setColorLabel(0)
 
 
 
+
+  def hide: Unit = {
+    description.setVisible(false)
+    pApp.clear()
+  }
+
+  def show: Unit = {
+    description.setVisible(true)
+    pApp.clear()
+  }
+
+  def keyPressed: Unit = {
+
+  }
+
+  def draw: Unit = {
+  }
 
 
   def position = _position
